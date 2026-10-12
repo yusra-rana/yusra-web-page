@@ -1,0 +1,104 @@
+body {
+margin: 0;
+font-family: Arial, sans-serif;
+background-color: #f3f8f4;
+}
+ 
+#main {
+width: 100%;
+}
+ 
+#header {
+background-color: #1b5e20;
+color: white;
+text-align: center;
+padding: 22px;
+}
+ 
+#content {
+text-align: center;
+padding: 40px;
+}
+ 
+#register-box {
+background-color: #e7f2e8;
+width: 500px;
+margin: auto;
+padding: 30px;
+border: 1px solid #b7d5ba;
+}
+ 
+.control {
+margin: 18px;
+}
+ 
+.label {
+display: inline-block;
+width: 130px;
+text-align: left;
+color: #1b5e20;
+font-weight: bold;
+}
+ 
+.colon {
+margin: 0 10px;
+color: #1b5e20;
+}
+ 
+.control input[type="text"],
+.control input[type="password"] {
+padding: 8px;
+border: 1px solid #91b896;
+border-radius: 4px;
+background-color: #d9d9d9;
+}
+ 
+.control input[type="text"]:focus,
+.control input[type="password"]:focus {
+border-color: #2e7d32;
+outline: none;
+}
+ 
+select {
+padding: 7px;
+border: 1px solid #91b896;
+border-radius: 4px;
+background-color: #d9d9d9;
+}
+ 
+textarea {
+vertical-align: top;
+border: 1px solid #91b896;
+border-radius: 4px;
+padding: 5px;
+background-color: #d9d9d9;
+}
+ 
+#agreement {
+margin-top: 20px;
+}
+ 
+#register-button {
+margin-top: 25px;
+}
+ 
+#register-button input {
+background-color: #388e3c;
+color: white;
+border: none;
+padding: 9px 25px;
+border-radius: 4px;
+cursor: pointer;
+}
+ 
+#register-button input:hover {
+background-color: #1b5e20;
+}
+ 
+#footer {
+background-color: #388e3c;
+color: white;
+text-align: center;
+padding: 16px;
+}
+ 
