@@ -1,49 +1,51 @@
 <!DOCTYPE html>
 <html>
-
 <head>
-    <title>Yusra Web Page</title>
+<title>Login Page</title>
+<link rel="stylesheet" href="blue.css">
 </head>
-
 <body>
-<table border="1" width="100%">
-<tr>
-<td align="center" bgcolor="pink">
-<h1>Welcome to My Website</h1>
-</td>
-</tr>
-<tr>
-<td align="center">
-  <form action="second.html">
-    <table>
-    <tr>
-    <td>Username</td>
-    <td>:</td>
-    <td><input type="text" name="username"></td>
-    </tr>
-     <tr>
-       <td>Password</td>
-       <td>:</td>
-       <td><input type="password" name="password"></td>
-       </tr>
-       <tr>
-       <td colspan="3" align="center">
-      <input type="submit" value="Login">
-      </td>
-       </tr>
-    </table>
-</form>
-</td>
-</tr>
-<tr>
-<td align="center" bgcolor="lightgray">
-Web Technology
-</td>
-</tr>
-</table>
-</table>
 
-    
+<div id="main">
+ <div id="header">
+ <h1>Welcome to My Website</h1>
+  </div>
+
+    <div id="content">
+
+        <form action="second.html">
+
+            <div id="login-box">
+
+                <div class="control">
+                    <span class="label">Username</span>
+                    <span class="colon">:</span>
+                    <input type="text" name="username">
+                </div>
+
+                <div class="control">
+                    <span class="label">Password</span>
+                    <span class="colon">:</span>
+                    <input type="password" name="password">
+                </div>
+
+                <div id="buttons">
+                    <input type="submit" value="Login">
+                </div>
+
+            </div>
+
+        </form>
+
+    </div>
+
+    <div id="footer">
+        <span>Web Technology</span>
+    </div>
+
+</div>
+
 </body>
 
 </html>
+ 
