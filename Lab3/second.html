@@ -1,89 +1,94 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-<title>Registration Page</title>
+    <title>Registration Page</title>
+    <link rel="stylesheet" href="green.css">
 </head>
+
 <body>
-<table border="1" width="100%">
 
-<tr>
-<td align="center" bgcolor="pink">
-<h1>Registration Form</h1>
-</td>
-</tr>
+<div id="main">
 
-<tr>
-<td align="center">
-  <form action="third.html">
-    <table cellpadding="8">
- <tr>
-    <td>Login Name</td>
-    <td>:</td>
-    <td><input type="text" name="loginname"></td>
- </tr>
- <tr>
-    <td>Enter Password</td>
-    <td>:</td>
-    <td><input type="password" name="password"></td>
- </tr>
- <tr>
-    <td>Re-enter Password</td>
-    <td>:</td>
-    <td><input type="password" name="repassword"></td>
- </tr>
- <tr>
-    <td>Gender</td>
-    <td>:</td>
-    <td>
-    <input type="radio" name="gender" value="male"> Male
-    <input type="radio" name="gender" value="female"> Female
-    </td>
- </tr>
-  <tr>
-    <td>Country</td>
-    <td>:</td>
-    <td>
-   <select id="dp1">
-        <option value="China">China</option>
-        <option value="Pakistan">Pakistan</option>
-        <option value="Japan">Japan</option>
-   </select>
-    
-    </td>
-   </tr>
+    <div id="header">
+        <h1>Registration Form</h1>
+    </div>
 
-    <tr>
-    <td>License</td>
-    <td>:</td>
-    <td>
-    <textarea rows="5" cols="30" readonly>This is the license agreement. By registering you agree to follow all the rules and terms of this website.</textarea>
-    </td>
-    </tr>
+    <div id="content">
 
-    <tr>
-    <td colspan="3" align="center">
-    <input type="checkbox" name="agree" value="yes"> I agree to the license
-    </td>
-    </tr>
+        <form action="third.html">
 
-    <tr>
-    <td colspan="3" align="center">
-    <input type="submit" value="Register">
-    </td>
-    </tr>
+            <div id="register-box">
 
-    </table>
-  </form>
-</td>
-</tr>
+                <div class="control">
+                    <span class="label">Login Name</span>
+                    <span class="colon">:</span>
+                    <input type="text" name="loginname">
+                </div>
 
-<tr>
-<td align="center" bgcolor="lightgray">
-Web Technology
-</td>
-</tr>
+                <div class="control">
+                    <span class="label">Enter Password</span>
+                    <span class="colon">:</span>
+                    <input type="password" name="password">
+                </div>
 
-</table>
+                <div class="control">
+                    <span class="label">Re-enter Password</span>
+                    <span class="colon">:</span>
+                    <input type="password" name="repassword">
+                </div>
+
+                <div class="control">
+                    <span class="label">Gender</span>
+                    <span class="colon">:</span>
+
+                    <input type="radio" name="gender" value="male">
+                    <span>Male</span>
+
+                    <input type="radio" name="gender" value="female">
+                    <span>Female</span>
+                </div>
+
+                <div class="control">
+                    <span class="label">Country</span>
+                    <span class="colon">:</span>
+
+                    <select id="dp1" name="country">
+                        <option value="China">China</option>
+                        <option value="Pakistan">Pakistan</option>
+                        <option value="Japan">Japan</option>
+                    </select>
+                </div>
+
+                <div class="control">
+                    <span class="label">License</span>
+                    <span class="colon">:</span>
+
+                    <textarea rows="5" cols="30" readonly>This is the license agreement. By registering you agree to follow all the rules and terms of this website.</textarea>
+                </div>
+
+                <div id="agreement">
+                    <input type="checkbox" name="agree" value="yes">
+                    <span>I agree to the license</span>
+                </div>
+
+                <div id="register-button">
+                    <input type="submit" value="Register">
+                </div>
+
+            </div>
+
+        </form>
+
+    </div>
+
+    <div id="footer">
+        <span>Web Technology</span>
+    </div>
+
+</div>
 
 </body>
+
 </html>
+ 
