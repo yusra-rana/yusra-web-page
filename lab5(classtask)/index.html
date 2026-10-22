@@ -1,0 +1,37 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Theme Login Page</title>
+    <link id="themeFile" rel="stylesheet" href="blue.css">
+</head>
+<body>
+
+    <header>HEADER</header>
+
+    <nav>
+        <button onclick="changeTheme('blue')">Blue</button>
+        <button onclick="changeTheme('green')">Green</button>
+        <button onclick="changeTheme('yellow')">Yellow</button>
+    </nav>
+
+    <main id="login">
+        <h2>Login Form</h2>
+
+        <label for="username">Login</label>
+        <input type="text" id="username" placeholder="Enter username">
+
+        <label for="password">Password</label>
+        <input type="password" id="password" placeholder="Enter password">
+
+        <button id="loginButton" onclick="loginUser()">Login</button>
+
+        <p id="message"></p>
+    </main>
+
+    <footer>FOOTER</footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
