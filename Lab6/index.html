@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Student Performance Management System</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- Top Rule Announcement Strip -->
+  <div class="announcement-bar">
+    <span><strong>Passing Policy:</strong> Minimum <strong>40 marks</strong> required in each of the 5 subjects to pass • Marks Range: 0–100</span>
+  </div>
+
+  <!-- Editorial SaaS Navbar -->
+  <header class="navbar">
+    <div class="nav-container">
+      <div class="brand">
+        <div class="brand-icon" aria-hidden="true">SP</div>
+        <div>
+          <h1 class="brand-title">Student Performance Management System</h1>
+          <p class="brand-subtitle">Academic Evaluation &amp; Class Analytics Dashboard</p>
+        </div>
+      </div>
+
+      <nav class="nav-links" aria-label="Dashboard Sections">
+        <a href="#overviewSection">Overview</a>
+        <a href="#entrySection">Register Student</a>
+        <a href="#recordsSection">Results Table</a>
+      </nav>
+
+      <div class="nav-actions">
+        <button type="button" id="loadSampleBtn" class="btn btn-secondary">Load Sample Data</button>
+        <button type="button" id="clearAllBtn" class="btn btn-primary">Clear All Records</button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Workspace -->
+  <main class="main-wrapper">
+
+    <!-- Performance Summary Section (KPI Strip) -->
+    <section id="overviewSection" class="kpi-grid" aria-label="Class Performance Summary">
+      <article class="kpi-card">
+        <div class="kpi-header">
+          <span class="kpi-label">Total Students</span>
+          <span id="passFailSplit" class="kpi-pill">0 Pass • 0 Fail</span>
+        </div>
+        <div id="totalStudents" class="kpi-value">0</div>
+        <p class="kpi-foot">Registered in current session</p>
+      </article>
+
+      <article class="kpi-card">
+        <div class="kpi-header">
+          <span class="kpi-label">Class Average</span>
+          <span class="kpi-pill neutral">Out of 100%</span>
+        </div>
+        <div id="classAverage" class="kpi-value">0.0%</div>
+        <div class="progress-track" aria-hidden="true">
+          <div id="classAvgBar" class="progress-fill" style="width: 0%"></div>
+        </div>
+      </article>
+
+      <article class="kpi-card kpi-highlight">
+        <div class="kpi-header">
+          <span class="kpi-label">Top Performer</span>
+          <span class="kpi-pill warm">Highest Score</span>
+        </div>
+        <div id="topStudent" class="kpi-value kpi-value-sm">—</div>
+        <p id="topStudentDetail" class="kpi-foot">Add student records to view</p>
+      </article>
+    </section>
+
+    <!-- Two-Column Split Workspace -->
+    <div class="workspace-grid">
+
+      <!-- Left Column: Student Registration Form -->
+      <aside id="entrySection" class="card form-card">
+        <div class="card-header">
+          <h2>Register Student</h2>
+          <p>Enter student details and marks across all five subjects.</p>
+        </div>
+
+        <form id="studentForm" novalidate>
+          <div class="form-group">
+            <label for="studentName">Student Name</label>
+            <input
+              type="text"
+              id="studentName"
+              placeholder="e.g., Ali Raza"
+              autocomplete="off"
+              required
+            />
+          </div>
+
+          <div class="form-group">
+            <label for="regNumber">Registration Number</label>
+            <input
+              type="text"
+              id="regNumber"
+              placeholder="e.g., REG-101"
+              autocomplete="off"
+              required
+            />
+          </div>
+
+          <div class="subjects-divider">
+            <span>Subject Marks (0 – 100)</span>
+          </div>
+
+          <div class="marks-grid">
+            <div class="form-group">
+              <label for="programming">Programming</label>
+              <input type="number" id="programming" min="0" max="100" placeholder="0–100" required />
+            </div>
+
+            <div class="form-group">
+              <label for="mathematics">Mathematics</label>
+              <input type="number" id="mathematics" min="0" max="100" placeholder="0–100" required />
+            </div>
+
+            <div class="form-group">
+              <label for="english">English</label>
+              <input type="number" id="english" min="0" max="100" placeholder="0–100" required />
+            </div>
+
+            <div class="form-group">
+              <label for="database">Database</label>
+              <input type="number" id="database" min="0" max="100" placeholder="0–100" required />
+            </div>
+
+            <div class="form-group form-group-full">
+              <label for="networks">Computer Networks</label>
+              <input type="number" id="networks" min="0" max="100" placeholder="0–100" required />
+            </div>
+          </div>
+
+          <button type="submit" id="addStudentBtn" class="btn btn-primary btn-block">
+            + Add Student
+          </button>
+        </form>
+      </aside>
+
+      <!-- Right Column: Visual Analytics & Student Results Table -->
+      <section id="recordsSection" class="records-column">
+
+        <!-- Visual Analytics Panel -->
+        <div class="card analytics-card">
+          <div class="analytics-grid">
+            <!-- Grade Distribution Horizontal Stacked Bar -->
+            <div class="analytics-block">
+              <div class="analytics-head">
+                <h3>Grade Distribution</h3>
+                <span id="gradeSummaryText" class="muted-text">No records yet</span>
+              </div>
+              <div id="gradeDistributionBar" class="stacked-bar" aria-label="Grade Distribution Chart">
+                <div class="stacked-empty">Add students to visualize grades</div>
+              </div>
+              <div class="grade-legend">
+                <span><i class="dot dot-a"></i>A</span>
+                <span><i class="dot dot-b"></i>B</span>
+                <span><i class="dot dot-c"></i>C</span>
+                <span><i class="dot dot-d"></i>D</span>
+                <span><i class="dot dot-f"></i>F</span>
+              </div>
+            </div>
+
+            <!-- Subject-Wise Averages Mini Bar Chart -->
+            <div class="analytics-block">
+              <div class="analytics-head">
+                <h3>Subject Averages</h3>
+                <span class="muted-text">Class mean / 100</span>
+              </div>
+              <div id="subjectBars" class="subject-bars">
+                <div class="sub-bar-item">
+                  <span class="sub-score" id="avgProgText">0</span>
+                  <div class="sub-track"><div class="sub-fill" id="avgProgBar" style="height: 0%"></div></div>
+                  <span class="sub-name">Prog</span>
+                </div>
+                <div class="sub-bar-item">
+                  <span class="sub-score" id="avgMathText">0</span>
+                  <div class="sub-track"><div class="sub-fill" id="avgMathBar" style="height: 0%"></div></div>
+                  <span class="sub-name">Math</span>
+                </div>
+                <div class="sub-bar-item">
+                  <span class="sub-score" id="avgEngText">0</span>
+                  <div class="sub-track"><div class="sub-fill" id="avgEngBar" style="height: 0%"></div></div>
+                  <span class="sub-name">Eng</span>
+                </div>
+                <div class="sub-bar-item">
+                  <span class="sub-score" id="avgDbText">0</span>
+                  <div class="sub-track"><div class="sub-fill" id="avgDbBar" style="height: 0%"></div></div>
+                  <span class="sub-name">DB</span>
+                </div>
+                <div class="sub-bar-item">
+                  <span class="sub-score" id="avgNetText">0</span>
+                  <div class="sub-track"><div class="sub-fill" id="avgNetBar" style="height: 0%"></div></div>
+                  <span class="sub-name">Net</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Student Results Table Card -->
+        <div class="card table-card">
+          <div class="table-toolbar">
+            <div>
+              <h2>Student Results</h2>
+              <p id="recordCountLabel" class="muted-text">Showing 0 student records</p>
+            </div>
+
+            <div class="toolbar-controls">
+              <input
+                type="search"
+                id="searchInput"
+                class="search-input"
+                placeholder="Search by Reg #..."
+                aria-label="Search by Registration Number"
+              />
+              <button type="button" id="sortBtn" class="btn btn-secondary">
+                Sort %: Default
+              </button>
+            </div>
+          </div>
+
+          <div class="table-responsive">
+            <table id="resultsTable">
+              <thead>
+                <tr>
+                  <th>Reg #</th>
+                  <th>Student Name</th>
+                  <th>Subject Marks (P / M / E / D / N)</th>
+                  <th>Total</th>
+                  <th>Percentage</th>
+                  <th>Grade</th>
+                  <th>Status</th>
+                  <th>Action</th>
+                </tr>
+              </thead>
+              <tbody id="resultsBody">
+                <!-- Dynamic rows injected by script.js -->
+              </tbody>
+            </table>
+          </div>
+
+          <div id="emptyState" class="empty-state">
+            <p><strong>No student records found.</strong></p>
+            <p>Use the form on the left to register a student or click <em>Load Sample Data</em> above.</p>
+          </div>
+        </div>
+
+      </section>
+    </div>
+  </main>
+
+  <!-- Warm Apricot Footer Strip -->
+  <footer class="footer-strip">
+    <p>Student Performance Management System • Plain HTML, CSS &amp; JavaScript</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
