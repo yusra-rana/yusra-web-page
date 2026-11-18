@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Student Performance Management System</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- Ambient Editorial Background Blobs -->
+  <!-- Theme 1 Background: Pastel Circles -->
+  <div class="bg-blob blob-sage" aria-hidden="true"></div>
+  <div class="bg-blob blob-rose" aria-hidden="true"></div>
+
+  <!-- Theme 2 Background: Twinkling Stars -->
+  <div class="starfield" id="starfield" aria-hidden="true"></div>
+
+  <!-- Live Toast Notification Container -->
+  <div id="toastContainer" class="toast-container" aria-live="polite"></div>
+
+  <!-- Top Policy Strip -->
+  <div class="policy-bar">
+    <span class="policy-badge">PASSING RULE</span>
+    <span>Minimum <strong>40 marks</strong> required in each of the 5 subjects to pass • Marks Range: 0–100</span>
+  </div>
+
+  <!-- Real Sticky Website Top Navigation Bar -->
+  <header class="site-navbar" id="top">
+    <div class="nav-inner">
+      <div class="nav-brand">
+        <div class="brand-logo" aria-hidden="true">SP</div>
+        <div>
+          <h1>Student Performance Management System</h1>
+          <p>University Academic Evaluation &amp; Grade Portal</p>
+        </div>
+      </div>
+
+      <nav class="nav-menu" aria-label="Primary Navigation">
+        <a href="#summary">Overview</a>
+        <a href="#register">Registration</a>
+        <a href="#results">Results Table</a>
+      </nav>
+
+      <div class="nav-right">
+        <!-- Theme Switcher Buttons -->
+        <div class="theme-switcher" role="group" aria-label="Color Theme">
+          <button type="button" class="theme-btn active" data-theme="multicolor">
+            <span class="swatch swatch-multi"></span>
+            <span>Multi</span>
+          </button>
+          <button type="button" class="theme-btn" data-theme="solid">
+            <span class="swatch swatch-solid"></span>
+            <span>Solid</span>
+          </button>
+        </div>
+
+        <!-- Compact Circular Class Average Ring -->
+        <div class="nav-ring" title="Live Class Average">
+          <div class="ring-box">
+            <svg viewBox="0 0 120 120" aria-hidden="true">
+              <circle class="ring-bg" cx="60" cy="60" r="50" />
+              <circle class="ring-fill" id="ringFill" cx="60" cy="60" r="50" />
+            </svg>
+            <strong id="ringText">0%</strong>
+          </div>
+          <div class="ring-info">
+            <span class="ring-title">Class Avg</span>
+            <span id="ringStanding" class="ring-sub">No records</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <div class="page-wrapper">
+
+    <!-- 4-Tile Performance Summary Strip -->
+    <section class="summary-grid" id="summary" aria-label="Performance summary">
+      <article class="stat-card">
+        <span class="stat-label">Total Students</span>
+        <strong id="totalStudents" class="stat-value">0</strong>
+        <span class="stat-foot">Registered in session</span>
+      </article>
+
+      <article class="stat-card">
+        <span class="stat-label">Class Average</span>
+        <strong id="classAverage" class="stat-value">0.0%</strong>
+        <span class="stat-foot">Mean percentage / 100%</span>
+      </article>
+
+      <article class="stat-card">
+        <span class="stat-label">Passed / Failed</span>
+        <strong id="passFail" class="stat-value">0 / 0</strong>
+        <span class="stat-foot">40+ per subject rule</span>
+      </article>
+
+      <article class="stat-card">
+        <span class="stat-label">Highest-Scoring Student</span>
+        <strong id="highestStudent" class="stat-value stat-value-sm">—</strong>
+        <span id="highestDetail" class="stat-foot">Top class performer</span>
+      </article>
+    </section>
+
+    <!-- Main Split Workspace -->
+    <main class="workspace-grid">
+
+      <!-- Left Column: Full Unclipped Registration Card -->
+      <section class="card form-card" id="register">
+        <div class="form-head">
+          <span class="form-pill">DATA ENTRY</span>
+          <h2>Student Registration</h2>
+          <p>Enter student details and marks across all five subjects.</p>
+        </div>
+
+        <form id="studentForm" novalidate>
+          <div class="identity-grid">
+            <div class="form-group">
+              <label for="studentName">Student Name</label>
+              <input type="text" id="studentName" placeholder="e.g., Ali Khan" autocomplete="off" required />
+            </div>
+
+            <div class="form-group">
+              <label for="regNumber">Registration No.</label>
+              <input type="text" id="regNumber" placeholder="e.g., REG-101" autocomplete="off" required />
+            </div>
+          </div>
+
+          <div class="section-divider">Subject Marks (0 – 100)</div>
+
+          <div class="marks-grid">
+            <div class="form-group">
+              <label for="programming">Programming</label>
+              <input type="number" id="programming" min="0" max="100" placeholder="0–100" required />
+            </div>
+
+            <div class="form-group">
+              <label for="mathematics">Mathematics</label>
+              <input type="number" id="mathematics" min="0" max="100" placeholder="0–100" required />
+            </div>
+
+            <div class="form-group">
+              <label for="english">English</label>
+              <input type="number" id="english" min="0" max="100" placeholder="0–100" required />
+            </div>
+
+            <div class="form-group">
+              <label for="database">Database</label>
+              <input type="number" id="database" min="0" max="100" placeholder="0–100" required />
+            </div>
+
+            <div class="form-group full-span">
+              <label for="networks">Computer Networks</label>
+              <input type="number" id="networks" min="0" max="100" placeholder="0–100" required />
+            </div>
+          </div>
+
+          <!-- Real-Time Live Preview Bar -->
+          <div class="live-preview" id="livePreview" aria-live="polite">
+            <div class="preview-left">
+              <span class="preview-tag">LIVE PREVIEW</span>
+              <span id="previewStatus" class="preview-status">Enter marks to preview</span>
+            </div>
+            <div class="preview-right">
+              <strong id="previewPct">0%</strong>
+              <span id="previewGrade" class="grade-badge grade-neutral">—</span>
+            </div>
+          </div>
+
+          <button type="submit" id="addStudentBtn" class="btn btn-primary btn-full">
+            + Add Student
+          </button>
+        </form>
+      </section>
+
+      <!-- Right Column: Student Results Table -->
+      <section class="card table-card" id="results">
+        <div class="table-top">
+          <div>
+            <h2>Student Results</h2>
+            <p id="recordCountText" class="muted-sub">Showing 0 records</p>
+          </div>
+
+          <div class="toolbar-actions">
+            <input
+              type="search"
+              id="searchInput"
+              class="search-box"
+              placeholder="Search by Reg Number..."
+              aria-label="Search by registration number"
+            />
+            <button type="button" id="sortBtn" class="btn btn-secondary">Sort %: Default</button>
+            <button type="button" id="clearAllBtn" class="btn btn-danger">Clear All</button>
+          </div>
+        </div>
+
+        <div class="filter-bar" id="filterChips" role="group" aria-label="Filter results by status">
+          <button type="button" class="chip active" data-filter="all">All Records</button>
+          <button type="button" class="chip" data-filter="Pass">Passed Only</button>
+          <button type="button" class="chip" data-filter="Fail">Failed Only</button>
+        </div>
+
+        <div class="table-responsive">
+          <table id="resultsTable">
+            <thead>
+              <tr>
+                <th>#</th>
+                <th>Reg #</th>
+                <th>Student</th>
+                <th>Marks (P / M / E / D / N)</th>
+                <th>Total</th>
+                <th>Percentage</th>
+                <th>Grade</th>
+                <th>Status</th>
+                <th>Action</th>
+              </tr>
+            </thead>
+            <tbody id="resultsBody">
+              <!-- Dynamically populated via script.js -->
+            </tbody>
+          </table>
+        </div>
+
+        <div id="emptyMessage" class="empty-state">
+          <p><strong>No student records found.</strong></p>
+          <p>Enter student details in the registration panel on the left to generate results dynamically.</p>
+        </div>
+      </section>
+
+    </main>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
